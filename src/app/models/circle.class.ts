@@ -1,6 +1,7 @@
-import {Figure} from './figure.class';
+import { Figure } from './figure.class';
 
 const PI_VALUE = 3.141;
+const POW_VALUE = 2;
 
 export class Circle extends Figure {
   constructor(private _radius: number, public fields: string[]) {
@@ -12,7 +13,7 @@ export class Circle extends Figure {
    *
    */
   public getCircuit(): number {
-    return 2 * PI_VALUE * this._radius;
+    return POW_VALUE * PI_VALUE * this._radius;
   }
 
   /**
@@ -20,6 +21,6 @@ export class Circle extends Figure {
    *
    */
   public getSurfaceArea(): number {
-    return  PI_VALUE * Math.pow(this._radius, 2);
+    return  PI_VALUE * Math.pow(this._radius, POW_VALUE);
   }
 }
