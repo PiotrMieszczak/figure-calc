@@ -7,5 +7,5 @@ import 'hammerjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'figure-calculator';
+  title = 'Figure Calculator';
 }
