@@ -12,10 +12,20 @@ export class Circle extends Figure implements FormControls {
   }
 
   /**
-   * Calculates and returns circuit
+   * Updates figure field values
+   *
+   * @param  {{width:number} values
+   * @param  {number}} height
+   */
+  public updateValues(values: { radius: number }): void {
+    this._radius = values.radius;
+  }
+
+  /**
+   * Calculates and returns perimeter
    *
    */
-  public getCircuit(): number {
+  public getPerimeter(): number {
     return POW_VALUE * PI_VALUE * this._radius;
   }
 

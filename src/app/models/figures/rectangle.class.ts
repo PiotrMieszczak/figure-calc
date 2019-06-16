@@ -1,18 +1,31 @@
 import { Figure } from './figure.class';
 import { FormControls, FigureControl } from '../forms/figure-control.interface';
 
+const MULTIPLIER = 2;
+
 export class Rectangle extends Figure implements FormControls {
-  constructor(private _width: number, private _height: number) {
+  constructor(protected _width: number, protected _height: number) {
     super();
     this.createFormControls();
   }
 
   /**
-   * Calculates and returns circuit
+   * Updates figure field values
+   *
+   * @param  {{width:number} values
+   * @param  {number}} height
+   */
+  public updateValues(values: { width: number, height: number }): void {
+    this._width = values.width;
+    this._height = values.height;
+  }
+
+  /**
+   * Calculates and returns perimeter
    *
    */
-  public getCircuit(): number {
-    return (2 * this._width) + (this._height);
+  public getPerimeter(): number {
+    return (MULTIPLIER * this._width) + (MULTIPLIER * this._height);
   }
 
   /**
@@ -20,7 +33,7 @@ export class Rectangle extends Figure implements FormControls {
    *
    */
   public getSurfaceArea(): number {
-    return this._width + this._height;
+    return this._width * this._height;
   }
 
   /**

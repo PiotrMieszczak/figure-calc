@@ -9,25 +9,20 @@ const ONLY_NUMBER_PATTERN = '^[0-9]*$';
 })
 export class ResultFormService {
 
-  constructor() { }
-
   /**
    * Creates form group
-   * 
+   *
    * @param  {string[]} controlsNames
    * @returns FormGroup
    */
   public createFormGroup(controls: FigureControl[]): FormGroup {
     const group: {[key: string]: AbstractControl} = {};
-
     controls.forEach(control => {
       group[control.name] =  new FormControl('', [
         Validators.required,
         Validators.pattern(ONLY_NUMBER_PATTERN)
       ]);
     });
-    console.log('createFormGroup', group);
-
     return new FormGroup(group);
   }
 

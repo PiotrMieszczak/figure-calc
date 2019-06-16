@@ -3,11 +3,19 @@ import { FigureControl } from '../index';
 export abstract class Figure  {
   private _formFields: FigureControl[];
 
+   /**
+   * Updates figure field values
+   *
+   * @param  {object} values
+   * @param  {number}} height
+   */
+  public updateValues(values: object): void {}
+
   /**
-   * Returns figure circuit
+   * Returns figure perimeter
    *
    */
-  public getCircuit() {}
+  public getPerimeter() {}
 
   /**
    * Returns figure surface area

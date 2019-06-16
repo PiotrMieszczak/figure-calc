@@ -7,9 +7,12 @@
           </div>
       </ng-container>
   </form>
-  <!-- <div>
-    Calculated value
-  </div> -->
+<ng-container *ngIf="calculationType">
+  <div [ngSwitch]="calculationType">
+    <h1 *ngSwitchCase="'surface area'">Figure surface area: {{ figure.getSurfaceArea() }}</h1>
+    <h1 *ngSwitchCase="'perimeter'">Figure circuit: {{ figure.getPerimeter() }}</h1>
+  </div>
+</ng-container>
   <button mat-button matStepperBack>Return</button>
 </ng-container>
   
