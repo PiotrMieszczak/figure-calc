@@ -1,6 +1,8 @@
 export interface ChoiceFormState {
-  choiceForm: {
-    selectedFigureType: string;
-    selectedCalculationType: string;
-  };
+  choiceForm: ChoiceFormValue;
+}
+
+export interface ChoiceFormValue {
+  selectedFigureType: string;
+  selectedCalculationType: string;
 }

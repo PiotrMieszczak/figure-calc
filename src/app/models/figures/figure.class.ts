@@ -1,5 +1,7 @@
-export abstract class Figure {
-  protected constructor(public fields: string[]) {}
+import { FigureControl } from '../index';
+
+export abstract class Figure  {
+  private _formFields: FigureControl[];
 
   /**
    * Returns figure circuit
@@ -18,7 +20,16 @@ export abstract class Figure {
    *
    * @returns string
    */
-  public getFields(): string[] {
-    return this.fields.map(fieldName => this[fieldName]);
+  public getFields(): FigureControl[] {
+    return this._formFields;
+  }
+
+  /**
+   * Sets form fields value
+   *
+   * @param  {FigureControl[]} fields
+   */
+  protected setFormFields(fields: FigureControl[]): void {
+    this._formFields = fields;
   }
 }

@@ -1,11 +1,14 @@
 import { Figure } from './figure.class';
+import { FormControls, FigureControl } from '../forms/figure-control.interface';
 
 const PI_VALUE = 3.141;
 const POW_VALUE = 2;
 
-export class Circle extends Figure {
-  constructor(private _radius: number, public fields: string[]) {
-    super(fields);
+export class Circle extends Figure implements FormControls {
+
+  constructor(private _radius: number) {
+    super();
+    this.createFormControls();
   }
 
   /**
@@ -22,5 +25,15 @@ export class Circle extends Figure {
    */
   public getSurfaceArea(): number {
     return  PI_VALUE * Math.pow(this._radius, POW_VALUE);
+  }
+
+  /**
+   * Creates figure form controls
+   *
+   * @returns void
+   */
+  public createFormControls(): void {
+    const radiusControl = new FigureControl('radius', 'Enter width value');
+    this.setFormFields([radiusControl]);
   }
 }
