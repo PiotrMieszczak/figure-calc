@@ -3,6 +3,7 @@ import { FormGroup, AbstractControl, FormControl, Validators } from '@angular/fo
 import { Figure, Square, Rectangle, Circle, FigureControl } from '../../models';
 
 const ONLY_NUMBER_PATTERN = '^[0-9]*$';
+const MIN_VALUE = 1;
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class ResultFormService {
     controls.forEach(control => {
       group[control.name] =  new FormControl('', [
         Validators.required,
-        Validators.pattern(ONLY_NUMBER_PATTERN)
+        Validators.pattern(ONLY_NUMBER_PATTERN),
+        Validators.min(MIN_VALUE)
       ]);
     });
     return new FormGroup(group);

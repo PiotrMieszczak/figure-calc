@@ -5,6 +5,7 @@
             <mat-form-field>
               <mat-label class="group__label">{{ control.name }}</mat-label>
               <input matInput type="number" [placeholder]="control.placeholder" [formControlName]="control.name">
+              <mat-hint>Required, min value 1</mat-hint>
             </mat-form-field>
         </ng-container>
     </form>

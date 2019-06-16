@@ -26,13 +26,22 @@ export class ResultsFormComponent implements OnInit {
     this.startsSubForResultFormChangeValue();
   }
 
+/**
+ * Unsubscribes unnecessary subscriptions on component destroy
+ *
+ * @returns void
+ */
+  ngOnDestroy(): void {
+    this._formsManager.unsubscribe();
+  }
+
   /**
    * Starts sub for changes in result form
-   * 
-   * 
+   *
+   *
    * @returns void
    */
-  startsSubForResultFormChangeValue(): void {
+  public startsSubForResultFormChangeValue(): void {
     this._formsManager.selectForm('resultForm')
     .pipe(
       filter(form => form.valid),
@@ -48,18 +57,13 @@ export class ResultsFormComponent implements OnInit {
    *
    * @returns void
    */
-  updateFigureData(formValue): void {
+  public updateFigureData(formValue): void {
     this.figure instanceof Square ? this.figure.updateValues({width: formValue.edge, height: formValue.edge}) :
       this.figure.updateValues(formValue);
   }
 
-   /**
-   * Unsubscribes unnecessary subscriptions on component destroy
-   *
-   * @returns void
-   */
-  ngOnDestroy(): void {
-    this._formsManager.unsubscribe();
+  public checkValidation(ctrlName) {
+    console.log('ctrlName', ctrlName);
   }
 
   /**
