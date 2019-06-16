@@ -11,8 +11,12 @@
     </form>
     <ng-container *ngIf="calculationType && resultFormGroup.valid">
       <div [ngSwitch]="calculationType">
-        <h3 *ngSwitchCase="'surface area'">Figure surface area: {{ figure.getSurfaceArea() }}</h3>
-        <h3 *ngSwitchCase="'perimeter'">Figure perimeter: {{ figure.getPerimeter() }}</h3>
+        <div *ngSwitchCase="'surface area'">
+          <h3>Figure surface area: </h3>{{ figure.getSurfaceArea() }} U<sup>2</sup>
+        </div>
+        <div *ngSwitchCase="'perimeter'">
+          <h3>Figure perimeter: </h3>{{ figure.getPerimeter() }} U
+        </div>
       </div>
     </ng-container>
   </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="horizontalView">
   <mat-horizontal-stepper [linear]="false" #stepper>
     <mat-step [completed]="false">
       <ng-template matStepLabel>Chose figure and calculation type</ng-template>
@@ -9,4 +9,17 @@
       <app-results-form></app-results-form>
     </mat-step>
   </mat-horizontal-stepper>
+</div>
+
+<div class="container" *ngIf="!horizontalView">
+  <mat-vertical-stepper [linear]="false" #stepper>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Chose figure and calculation type</ng-template>
+      <app-choice-form></app-choice-form>
+    </mat-step>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Enter values for calculation</ng-template>
+      <app-results-form></app-results-form>
+    </mat-step>
+  </mat-vertical-stepper>
 </div>

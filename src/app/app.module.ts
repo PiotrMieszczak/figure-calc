@@ -11,6 +11,7 @@ import { ResultsFormComponent } from './components/results-form/results-form.com
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    LayoutModule,
     AkitaNgDevtools.forRoot()
   ],
   providers: [],
