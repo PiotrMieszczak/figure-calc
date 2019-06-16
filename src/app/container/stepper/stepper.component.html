@@ -1,3 +1,13 @@
-<p>
-  stepper works!
-</p>
+<div class="container">
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step >
+      <ng-template matStepLabel>Step I</ng-template>
+      <app-choice-form></app-choice-form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Step II</ng-template>
+      <app-results-form></app-results-form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+

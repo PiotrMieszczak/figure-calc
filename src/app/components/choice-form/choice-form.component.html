@@ -1,3 +1,18 @@
-<p>
-  choice-form works!
-</p>
+<form [formGroup]="choiceFormGroup">
+  <mat-form-field>
+    <mat-label>Calculation type</mat-label>
+    <mat-select formControlName="selectedCalculationType">
+      <mat-option *ngFor="let type of calcTypes" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label #figureLabel>Figure type</mat-label>
+  <mat-radio-group formControlName="selectedFigureType" aria-labelledby="figureLabel">
+    <mat-radio-button *ngFor="let figure of figureTypes" [value]="figure">
+      {{ figure }}
+    </mat-radio-button>
+  </mat-radio-group>
+</form>
+<button mat-button matStepperNext [disabled]="!choiceFormGroup.valid" >Next</button>
