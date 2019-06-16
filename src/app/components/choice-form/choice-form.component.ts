@@ -1,19 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
-
-export interface ChoiceFormState {
-  choiceForm: {
-    selectedFigureType: string;
-    selectedCalculationType: string;
-  };
-}
-
-const enum INITIAL_STATE  {
-  selectedFigureType = 'rectangle',
-  selectedCalculationType = 'circuit'
-}
+import { ChoiceFormState } from '../../models';
 
 @Component({
   selector: 'app-choice-form',
@@ -26,18 +14,18 @@ export class ChoiceFormComponent {
   public choiceFormGroup: FormGroup;
 
   constructor(private _fb: FormBuilder,
-    private formsManager: AkitaNgFormsManager<ChoiceFormState>) {
+    private _formsManager: AkitaNgFormsManager<ChoiceFormState>) {
     this.createFormGroup();
     this.assignFormGroupToStateManager();
   }
 
   /**
    * Unsubscribes unnecessary subscriptions on component destroy
-   * 
+   *
    * @returns void
    */
   ngOnDestroy(): void {
-    this.formsManager.unsubscribe();
+    this._formsManager.unsubscribe();
   }
 
   /**
@@ -54,10 +42,10 @@ export class ChoiceFormComponent {
 
   /**
    * Assigns form group do global form management state
-   * 
+   *
    * @returns void
    */
   assignFormGroupToStateManager(): void {
-    this.formsManager.upsert('choiceForm', this.choiceFormGroup);
+    this._formsManager.upsert('choiceForm', this.choiceFormGroup);
   }
 }
