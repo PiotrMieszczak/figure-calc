@@ -1,13 +1,12 @@
 <div class="container">
   <mat-horizontal-stepper [linear]="false" #stepper>
-    <mat-step >
-      <ng-template matStepLabel>Step I</ng-template>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Chose figure and calculation type</ng-template>
       <app-choice-form></app-choice-form>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Step II</ng-template>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Enter values for calculation</ng-template>
       <app-results-form></app-results-form>
     </mat-step>
   </mat-horizontal-stepper>
 </div>
-

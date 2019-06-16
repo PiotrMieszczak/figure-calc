@@ -1,18 +1,22 @@
 <form [formGroup]="choiceFormGroup">
-  <mat-form-field>
+  <mat-form-field class="field">
     <mat-label>Calculation type</mat-label>
-    <mat-select formControlName="selectedCalculationType">
+    <mat-select formControlName="selectedCalculationType" required>
       <mat-option *ngFor="let type of calcTypes" [value]="type">
         {{ type }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-label #figureLabel>Figure type</mat-label>
-  <mat-radio-group formControlName="selectedFigureType" aria-labelledby="figureLabel">
-    <mat-radio-button *ngFor="let figure of figureTypes" [value]="figure">
-      {{ figure }}
-    </mat-radio-button>
-  </mat-radio-group>
+  <div class="field">
+      <mat-label #figureLabel>Figure type</mat-label>
+      <mat-radio-group formControlName="selectedFigureType" aria-labelledby="figureLabel">
+        <mat-radio-button *ngFor="let figure of figureTypes" [value]="figure">
+          {{ figure }}
+        </mat-radio-button>
+      </mat-radio-group>
+  </div>
 </form>
-<button mat-button matStepperNext [disabled]="!choiceFormGroup.valid" >Next</button>
+<div class="btns">
+  <button mat-raised-button color="primary" matStepperNext [disabled]="!choiceFormGroup.valid" class="btn">Next</button>
+</div>

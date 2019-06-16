@@ -1,18 +1,29 @@
 <ng-container *ngIf="resultFormGroup">
-  <form [formGroup]="resultFormGroup">
-      <ng-container>
-          <div *ngFor="let control of controls" class="form__group">
-            <mat-label>{{ control.name }}</mat-label>
-            <input matInput [placeholder]="control.placeholder" [formControlName]="control.name">
-          </div>
-      </ng-container>
-  </form>
-<ng-container *ngIf="calculationType">
-  <div [ngSwitch]="calculationType">
-    <h1 *ngSwitchCase="'surface area'">Figure surface area: {{ figure.getSurfaceArea() }}</h1>
-    <h1 *ngSwitchCase="'perimeter'">Figure circuit: {{ figure.getPerimeter() }}</h1>
+  <div class="container__form">
+    <form [formGroup]="resultFormGroup">
+        <ng-container *ngFor="let control of controls" class="form__group">
+            <mat-form-field>
+              <mat-label class="group__label">{{ control.name }}</mat-label>
+              <input matInput type="number" [placeholder]="control.placeholder" [formControlName]="control.name">
+            </mat-form-field>
+        </ng-container>
+    </form>
+    <ng-container *ngIf="calculationType && resultFormGroup.valid">
+      <div [ngSwitch]="calculationType">
+        <h3 *ngSwitchCase="'surface area'">Figure surface area: {{ figure.getSurfaceArea() }}</h3>
+        <h3 *ngSwitchCase="'perimeter'">Figure perimeter: {{ figure.getPerimeter() }}</h3>
+      </div>
+    </ng-container>
+  </div>
+  <div class="btns">
+    <button mat-raised-button color="primary" matStepperPrevious>Return</button>
   </div>
 </ng-container>
-  <button mat-button matStepperBack>Return</button>
+
+<ng-container *ngIf="!resultFormGroup">
+  <h3>Please fill all fields in previous step</h3>
+  <div class="btns">
+    <button mat-raised-button color="primary" matStepperPrevious>Return</button>
+  </div>
 </ng-container>
   

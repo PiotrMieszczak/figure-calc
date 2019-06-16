@@ -10,13 +10,15 @@ import { ChoiceFormComponent } from './components/choice-form/choice-form.compon
 import { ResultsFormComponent } from './components/results-form/results-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StepperComponent,
     ChoiceFormComponent,
-    ResultsFormComponent
+    ResultsFormComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

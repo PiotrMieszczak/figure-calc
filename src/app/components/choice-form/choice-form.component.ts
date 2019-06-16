@@ -10,7 +10,7 @@ import { ChoiceFormState } from '../../models';
 })
 export class ChoiceFormComponent {
   public figureTypes: string[] = ['square', 'rectangle', 'circle'];
-  public calcTypes: string[] = ['surface area', 'circuit'];
+  public calcTypes: string[] = ['surface area', 'perimeter'];
   public choiceFormGroup: FormGroup;
 
   constructor(private _fb: FormBuilder,
