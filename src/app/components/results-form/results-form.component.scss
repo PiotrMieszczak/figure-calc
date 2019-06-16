@@ -1,8 +1,18 @@
+@import 'global';
+
 .container__form {
   display: flex;
-  flex-wrap: wraps;
-  
+  flex-direction: column-reverse;
+
+  @include breakpoint($bp-xs) {
+    flex-direction: row;
+  }
+
   form {
-    width: 70%;
+    width: 100%;
+
+    @include breakpoint($bp-xs) {
+      width: 70%;
+    }
   }
 }

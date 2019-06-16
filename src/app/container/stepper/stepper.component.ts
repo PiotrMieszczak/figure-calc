@@ -13,7 +13,7 @@ export class StepperComponent implements OnInit {
 
   ngOnInit() {
     this._breakpointObserver
-      .observe(['(min-width: 500px)'])
+      .observe(['(min-width: 566px)'])
       .subscribe((state: BreakpointState) => {
         this.horizontalView = !state.matches ? false : true;
       });

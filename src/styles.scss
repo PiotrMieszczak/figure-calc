@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'global';
 
 .container {
-  max-width: 1200px;
+  max-width: $container-max-width;
   margin: 0 auto;
 
   form {
@@ -10,14 +11,22 @@
     flex-direction: column;
 
     mat-form-field {
-      max-width: 50%;
+      max-width: 100%;
+
+      @include breakpoint($bp-xs) {
+        width: 50%;
+      }
     }
 
     mat-radio-group {
-      max-width: 40%;
+      max-width: 1000%;
       display: flex;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: $fields-padding;
+
+      @include breakpoint($bp-xs) {
+        width: 50%;
+      }
     }
   }
 
