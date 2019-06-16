@@ -1,3 +1,15 @@
-<p>
-  results-form works!
-</p>
+<ng-container *ngIf="resultFormGroup">
+  <form [formGroup]="resultFormGroup">
+      <ng-container>
+          <div *ngFor="let control of controls" class="form__group">
+            <mat-label>{{ control.name }}</mat-label>
+            <input matInput [placeholder]="control.placeholder" [formControlName]="control.name">
+          </div>
+      </ng-container>
+  </form>
+  <!-- <div>
+    Calculated value
+  </div> -->
+  <button mat-button matStepperBack>Return</button>
+</ng-container>
+  
